@@ -8,9 +8,9 @@ Project structure:
  - weights      -> the directory with weights of neural network 
 
 
-> git clone https://github.com/microsoft/vcpkg
-> cd vcpkg
-> .\vcpkg\bootstrap-vcpkg.bat
-> vcpkg install opencv:x64-windows
-> vcpkg install boost:x64-windows
-> vcpkg install gtest:x64-windows
+        > git clone https://github.com/microsoft/vcpkg
+        > cd vcpkg
+        > .\vcpkg\bootstrap-vcpkg.bat
+        > vcpkg install opencv:x64-windows
+        > vcpkg install boost:x64-windows
+        > vcpkg install gtest:x64-windows
