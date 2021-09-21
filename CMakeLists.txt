@@ -1,26 +1,31 @@
 cmake_minimum_required(VERSION 3.5)
-
-project(untitled1 LANGUAGES CXX)
-
+project(FaceFinder LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
-#set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+string (TOLOWER ${CMAKE_BUILD_TYPE} RELEASE_TYPE  )
+if (WIN32)
+    link_directories(./dll/win/${RELEASE_TYPE})
+else()
+    link_directories(./dll/linux/${RELEASE_TYPE})
+endif()
 
 find_package(OpenCV REQUIRED)
 find_package(Boost REQUIRED COMPONENTS filesystem program_options system )
-add_subdirectory(modules/FaceDetection)
-#add_subdirectory(modules/simpleDll)
+#add_subdirectory(facedetector)
+add_subdirectory(helpers)
+add_executable(${PROJECT_NAME} main.cpp ./helpers/help_functions.h)
+target_link_libraries(${PROJECT_NAME}   ${OpenCV_LIBS} Boost::filesystem Boost::program_options Boost::system )
+target_link_libraries(${PROJECT_NAME}   facedetector poolwraper facesaver)
+message(${CMAKE_CURRENT_SOURCE_DIR})
+message(${CMAKE_BINARY_DIR})
+file (COPY ${CMAKE_CURRENT_SOURCE_DIR}/weights DESTINATION ${CMAKE_BINARY_DIR})
+file (COPY ${CMAKE_CURRENT_SOURCE_DIR}/test_image DESTINATION ${CMAKE_BINARY_DIR})
+file (COPY ${CMAKE_CURRENT_SOURCE_DIR}/facedetector/facedetector.h DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
-#link_directories(dll/simpledll)
-#link_directories(dll/fd)
-
-
-add_executable(untitled1 main.cpp watcher.h threadpool.h threadpool.cpp)
-target_link_libraries(untitled1 PRIVATE ${OpenCV_LIBS} Boost::filesystem Boost::program_options Boost::system )
-#target_link_libraries(untitled1 PRIVATE simpleDll faceDetection )
-#target_link_libraries(untitled1 PUBLIC simpleDll )
-target_link_libraries(untitled1 PUBLIC faceDetection )
-
-
-
-#add_executable(untitled1_2 main_2.cpp watcher.h)
-#target_link_libraries(untitled1_2  ${OpenCV_LIBS} Boost::filesystem Boost::program_options)
+string (TOLOWER ${CMAKE_BUILD_TYPE} RELEASE_TYPE  )
+if (WIN32)
+    file (COPY ${CMAKE_CURRENT_SOURCE_DIR}/dll/win/${RELEASE_TYPE}/facedetector.dll DESTINATION ${CMAKE_BINARY_DIR})
+else()
+    file (COPY ${CMAKE_CURRENT_SOURCE_DIR}/dll/linux/${RELEASE_TYPE}/libfacedetector.so DESTINATION ${CMAKE_BINARY_DIR})
+endif()
