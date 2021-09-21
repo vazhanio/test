@@ -12,7 +12,7 @@ endif()
 
 find_package(OpenCV REQUIRED)
 find_package(Boost REQUIRED COMPONENTS filesystem program_options system )
-#add_subdirectory(facedetector)
+add_subdirectory(facedetector)
 add_subdirectory(helpers)
 add_executable(${PROJECT_NAME} main.cpp ./helpers/help_functions.h)
 target_link_libraries(${PROJECT_NAME}   ${OpenCV_LIBS} Boost::filesystem Boost::program_options Boost::system )
