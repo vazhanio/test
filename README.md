@@ -34,3 +34,6 @@ Architectural solutions in the project:
         "image_id": "../dataset\1\2\2\i (1).jpg",
         "faces": [ [281, 143, 594, 575] ]
         }
+Where:
+ - "image_id" -> The relative path to the image from the folder
+ - "faces"    -> An array of rectangles with the coordinates of the found faces. Coordinates in XYXY format 
