@@ -13,7 +13,7 @@ List of required libraries:
  - Boost
  - Gtest
 
-For windows, the download of the necessary libraries can be done in Vcpkg (https://github.com/microsoft/vcpkg).  
+For windows, the download of the necessary libraries can be done in Vcpkg (https://github.com/microsoft/vcpkg). Below is the script for automatic installation of all dependencies.   
 
         > git clone https://github.com/microsoft/vcpkg
         > cd vcpkg
@@ -21,3 +21,7 @@ For windows, the download of the necessary libraries can be done in Vcpkg (https
         > vcpkg install opencv:x64-windows
         > vcpkg install boost:x64-windows
         > vcpkg install gtest:x64-windows
+
+There is no script for installing all dependencies for Linux. Unfortunately, I don't know Linux that well. 
+
+
