@@ -30,3 +30,5 @@
 /cmake
 *.json
 *.png
+
+CMakeLists.txt.user
