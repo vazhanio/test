@@ -29,7 +29,7 @@ There is no script for installing all dependencies for Linux. Unfortunately, I d
 Architectural solutions in the project:
  - From the condition that we do not know the number of images, it was decided to process them with batches of size 20.
  - Jason file format: 
-  {
-    "image_id": "../dataset\1\2\2\i (1).jpg",
-    "faces": [ [281, 143, 594, 575] ]
-  }
+   {
+     "image_id": "../dataset\1\2\2\i (1).jpg",
+     "faces": [ [281, 143, 594, 575] ]
+   }
