@@ -1,3 +1,5 @@
+The project is tested on Windows and Linux (with all necessary libraries pre-installed manually) 
+
 Project structure:
  - dataset      -> the directory with test images 
  - dll          -> the directory with dianmic libraries 
