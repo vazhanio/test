@@ -8,6 +8,13 @@ Project structure:
  - weights      -> the directory with weights of neural network 
 
 
+List of required libraries:
+ - OpenCV
+ - Boost
+ - Gtest
+
+For windows, the download of the necessary libraries can be done in Vcpkg (https://github.com/microsoft/vcpkg).  
+
         > git clone https://github.com/microsoft/vcpkg
         > cd vcpkg
         > .\vcpkg\bootstrap-vcpkg.bat
